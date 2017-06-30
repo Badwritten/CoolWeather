@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.wanghaishu.coolweather.R;
+import com.example.wanghaishu.coolweather.service.AutoUpdataService;
 import com.example.wanghaishu.coolweather.util.HttpCallbackListener;
 import com.example.wanghaishu.coolweather.util.HttpUtil;
 import com.example.wanghaishu.coolweather.util.Utility;
@@ -106,6 +107,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDateText.setText(prefs.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdataService.class);
+        startService(intent);
     }
 
     /**
